@@ -1,4 +1,6 @@
 # Parent class
+
+
 class Person:
     def __init__(self, name, age, occupation):
         self.name = name
@@ -14,8 +16,18 @@ class Person:
 
 # Child class
 class Superhero(Person):
-    pass
+    def __init__(self, name, age, occupation):
+        super().__init__(name, age, occupation)
+
+    def say_hello(self):
+        super().say_hello()
 
 
 if __name__ == "__main__":
     hero = Superhero("Scarlet Witch", 32, "red balls")
+    hero.say_hello()
+    print(isinstance(hero, Superhero))
+    print(isinstance(hero, Person))
+
+    print(issubclass(Superhero, Person))
+    print(issubclass(Person, Superhero))
